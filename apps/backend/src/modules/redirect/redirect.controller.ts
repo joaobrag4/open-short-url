@@ -36,6 +36,17 @@ export class RedirectController {
     private readonly turnstileService: TurnstileService
   ) {}
 
+  // 👇👇👇 ADICIONE ESTE BLOCO NOVO AQUI 👇👇👇
+  /**
+   * Redireciona a raiz (link.sejaziva.com.br) para o Ecommerce
+   */
+  @Get()
+  async handleRoot(@Res() reply: FastifyReply) {
+    // 301 = Redirecionamento Permanente (Melhor para SEO)
+    return reply.redirect('https://sejaziva.com.br', 301);
+  }
+  // 👆👆👆 FIM DO BLOCO NOVO 👆👆👆
+  
   /**
    * Handle favicon.ico requests
    */
